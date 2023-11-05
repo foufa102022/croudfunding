@@ -31,8 +31,9 @@ pipeline {
         }
         stage('Publish Artifact') {
             steps {
+              script{
                 archiveArtifacts 'dist/*'  // Archivez les fichiers de l'application construite
-            }
+            }}
         }
     }
 }}
