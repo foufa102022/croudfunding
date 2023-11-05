@@ -20,7 +20,7 @@ pipline{
                 stage('installation node package manager'){
             steps {
                 script {
-                   bat 'ls'  
+                   bat 'dir'  
                 }
             }
       
