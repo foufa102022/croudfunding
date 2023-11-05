@@ -1,4 +1,4 @@
-pipline{
+pipeline{
      agent any
          def nodejs = tool name: 'NODEJS'
    environment {
