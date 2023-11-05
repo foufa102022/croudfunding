@@ -8,7 +8,7 @@ RUN npm run build
 
 # Stage 2: Serve the Angular app using Nginx
 FROM nginx:alpine
-COPY --from=build /app/dist/crowdFunding-Angular /usr/share/nginx/html
+COPY --from=build /app/dist/croudfunding /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
