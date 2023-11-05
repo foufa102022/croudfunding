@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_PATH = "C:\\Program Files\\Docker\\cli-plugins"
+        PATH = "${DOCKER_PATH}:${PATH}"
         NODEJS_PATH = "C:\\Program Files (x86)\\nodejs"
     }
     stages {
