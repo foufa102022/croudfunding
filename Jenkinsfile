@@ -55,8 +55,8 @@ pipeline {
     steps {
         script {
             // Construisez l'image Docker
-            bat "docker build -t FRONT-ANGULAR-Image:${BUILD_ID} ."
-            bat "docker tag FRONT-ANGULAR-Image:${BUILD_ID} chetouiiftikhar/FRONT-ANGULAR-Image:${BUILD_ID}"
+            bat "docker build -t front-ang-image:${BUILD_ID} ."
+            bat "docker tag front-ang-image:${BUILD_ID} chetouiiftikhar/front-ang-image:${BUILD_ID}"
         }
     }
 }
