@@ -26,14 +26,13 @@ pipeline {
                 dir('pipline-FRONT-ANG-test1') 
                 {
                 bat 'npm install'  // Installez les dépendances du projet avec "bat"
-                bat 'dir'
                 bat 'npm run build' // Construisez l'application Angular avec "bat"
             }}
         }
-        // stage('Publish Artifact') {
-        //     steps {
-        //         archiveArtifacts 'dist/*'  // Archivez les fichiers de l'application construite
-        //     }
-        // }
+        stage('Publish Artifact') {
+            steps {
+                archiveArtifacts 'dist/*'  // Archivez les fichiers de l'application construite
+            }
+        }
     }
 }}
