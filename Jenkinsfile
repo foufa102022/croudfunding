@@ -27,11 +27,19 @@ pipeline {
                 bat 'npm run build' // Construisez l'application Angular avec "bat"
             }
         }}
-        stage('Publish Artifact') {
-            steps {
-              script{
-                archiveArtifacts 'dist'  // Archivez les fichiers de l'application construite
-            }}
+        // stage('Publish Artifact') {
+        //     steps {
+        //       script{
+        //         archiveArtifacts 'dist'  // Archivez les fichiers de l'application construite
+        //     }}
+        // }
+      stage('Publish Artifact') {
+    steps {
+        script {
+            archiveArtifacts artifacts: 'dist/**', allowEmptyArchive: true
         }
+    }
+}
+
     }
 }
