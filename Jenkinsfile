@@ -15,7 +15,7 @@ pipeline {
         stage('Install Node.js and npm') {
             steps {
                 script {
-                    def nodejs = tool name: 'YOUR_NODEJS_TOOL_NAME', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
+                    def nodejs = tool name: 'NODEJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
                     env.PATH = "${nodejs}/bin:${env.PATH}"
                 }
             }
