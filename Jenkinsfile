@@ -28,7 +28,7 @@ pipeline {
                 bat 'npm install'  // Installez les dépendances du projet avec "bat"
                 bat 'npm run build' // Construisez l'application Angular avec "bat"
             }}
-        }
+        }}
         stage('Publish Artifact') {
             steps {
               script{
@@ -36,4 +36,4 @@ pipeline {
             }}
         }
     }
-}}
+}
