@@ -26,7 +26,7 @@ pipeline {
                 dir('pipline-FRONT-ANG-test1') 
                 {
                 bat 'npm install'  // Installez les dépendances du projet avec "bat"
-                bat 'dir
+                bat 'dir'
                 bat 'npm run build' // Construisez l'application Angular avec "bat"
             }}
         }
