@@ -22,17 +22,15 @@ pipeline {
         }
         stage('Build Angular Application') {
             steps {
-              script {
-                dir('pipline-FRONT-ANG-test1') 
-                {
+              script {  
                 bat 'npm install'  // Installez les dépendances du projet avec "bat"
                 bat 'npm run build' // Construisez l'application Angular avec "bat"
-            }}
+            }
         }}
         stage('Publish Artifact') {
             steps {
               script{
-                archiveArtifacts 'dist/*'  // Archivez les fichiers de l'application construite
+                archiveArtifacts 'dist'  // Archivez les fichiers de l'application construite
             }}
         }
     }
