@@ -12,6 +12,7 @@ RUN npm install
 
 # Copier tous les fichiers source de l'application dans le conteneur
 COPY . .
+COPY src .
 
 # Construire l'application Angular
 RUN npm run build
