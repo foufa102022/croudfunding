@@ -1,29 +1,35 @@
-pipeline{
-     agent any
-         def nodejs = tool name: 'NODEJS'
-   environment {
-       DOCKER_PATH = "C:\\Program Files\\Docker\\cli-plugins"
-       NODEJS_PATH = "C:\\Program Files (x86)\\nodejs"
-        env.PATH = "${nodejs}/bin:${env.PATH}"
-      DOCKERHUB_CREDENTIALS = credentials('DockerHub')
-   
-   }
-       stages {
-         stage('checkout'){
+pipeline {
+    agent any
+    environment {
+        DOCKER_PATH = "C:\\Program Files\\Docker\\cli-plugins"
+        NODEJS_PATH = "C:\\Program Files (x86)\\nodejs"
+    }
+    stages {
+        stage('Checkout') {
             steps {
                 script {
-                   checkout scm   
+                    checkout scm
                 }
             }
-      
-    }
-                stage('installation node package manager'){
+        }
+        stage('Install Node.js and npm') {
             steps {
                 script {
-                   bat 'dir'  
+                    def nodejs = tool name: 'YOUR_NODEJS_TOOL_NAME', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
+                    env.PATH = "${nodejs}/bin:${env.PATH}"
                 }
             }
-      
+        }
+        stage('Build Angular Application') {
+            steps {
+                bat 'npm install'  // Installez les dépendances du projet avec "bat"
+                // bat 'npm run build' // Construisez l'application Angular avec "bat"
+            }
+        }
+        // stage('Publish Artifact') {
+        //     steps {
+        //         archiveArtifacts 'dist/*'  // Archivez les fichiers de l'application construite
+        //     }
+        // }
     }
-  }
 }
